@@ -4,7 +4,7 @@ Flask web app featuring a global static chat room, user-driven marketplace and d
 # About this project:
 
 * Flask app. This is a technical showcase, not production software i.e. admin credentials are listed below.  
-* There is a global chat room that refreshes statically. 
+* There is a global chat room. It does not make use of web sockets so it is not dynamic.
 * There is a marketplace that users can buy and sell on using fake currency.
 * Any user can suggest and vote on changes to the app e.g. colour scheme changes. 
 * Votes are upvotes/downvotes. Proposals with majority support are implemented automatically.
