@@ -23,3 +23,22 @@ Flask web app featuring a global static chat room, user-driven marketplace and d
 13. All page transition animations were made using the swup page transition library. Available from: https://swup.js.org/
 14. Font used is Roboto Mono. Available from: https://fonts.google.com/specimen/Roboto+Mono?preview.text_type=custom
 
+# Admin Access:
+
+1. Admin user_id is "admin".
+2. Admin password is "keen/nimble_SALSA".
+3. The admin portal can be accessed at the route "/admin".
+
+# Test acocunts (Feel free to make your own.):
+
+1. user_id: "cartwheelkitten", password: "supercsecret" (User is banned).
+2. user_id: "floralpelicanfly", password: "superfsecret".
+3. user_id: "unforgivenbeans", password: "superusecret".
+4. user_id: "spinachstandby", password: "superssecret".
+5. user_id: "fitnessjuice", password: "superfsecret".
+6. user_id: "departed", password: "superdsecret".
+7. user_id: "notorious", password: "supernsecret".
+8. user_id: "doughnutwalrus", password: "superdsecret".
+9. user_id: "snake", password: "superssecret".
+10. user_id: "birthdaycake", password: "superbsecret". 
+
