@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<nav class="swup" aria-label="Nav for shop, chat room, voting page">
+    <a class="active" href="{{url_for('shop')}}"><img src="{{url_for('static', filename='shop.png')}}" alt="Link to the hyper link market"></a>
+    <a href="{{url_for('chat')}}"><img src="{{url_for('static', filename='chat.png')}}" alt="Link to the public forum"></a>
+    <a href="{{url_for('voting')}}"><img id="voteicon" src="{{url_for('static', filename='vote.png')}}" alt="Link to the town hall"></a>
+</nav>
+    <div class="swup" id="shoptop">
+        <nav  aria-label="Nav for shop, cart, sell form" id="shopnav">
+            <a href="{{url_for('boughtlinks')}}">Cart</a>
+            <a class="active" href="{{url_for('shop')}}">Shop</a>
+            <a href="{{url_for('sell')}}">Sell</a>
+        </nav>
+        <p id="balance">Your balance is {{ balance }} Tulips</p>
+    </div>
+        <main class="swup transition-page1" id="shop">
+            <h1>The Hyperlink Market</h1>
+            {% for listing in listings %}
+            <section>
+                <h2><b>Title:&nbsp;</b> {{listing["title"]}}</h2>
+                <p><b>Seller:&nbsp;</b> {{listing["seller_id"]}}</p>
+                <p>{{listing["description"]}}</p> 
+                <p><b>Price:&nbsp;</b> {{listing["price"]}} Tulips</p>
+                <p>{% if listing["seller_id"] == user_id %}<a data-no-swup href="#">Your listing</a> {% elif listing["price"] > balance %} <a data-no-swup href="#">Not enough Tulips</a>{% elif listing["listing_id"] in boughtlinksList %}<a data-no-swup href="#">Bought</a> {% else %}<a data-no-swup class="buy" href="{{url_for('buy', listing_id=listing['listing_id'])}}">Buy</a> {% endif %}</p>
+            </section>
+            {% endfor %}
+        </main>
+    {% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<nav class="swup" aria-label="Nav for shop, chat room, voting page">
+    <a class="active" href="{{url_for('shop')}}"><img src="{{url_for('static', filename='shop.png')}}" alt="Link to the hyper link market"></a>
+    <a href="{{url_for('chat')}}"><img src="{{url_for('static', filename='chat.png')}}" alt="Link to the public forum"></a>
+    <a href="{{url_for('voting')}}"><img id="voteicon" src="{{url_for('static', filename='vote.png')}}" alt="Link to the town hall"></a>
+</nav>
+<div class="swup" id="shoptop">
+    <nav aria-label="Nav for shop, cart, sell form" id="shopnav">
+        <a class="active" href="{{url_for('boughtlinks')}}">Cart</a>
+        <a href="{{url_for('shop')}}">Shop</a>
+        <a href="{{url_for('sell')}}">Sell</a>
+    </nav>
+    <p id="balance">Your balance is {{ balance }} Tulips</p>
+</div>
+    <main class="swup transition-page1" id="shop">
+        {% for boughtlink in boughtlinks %} 
+            <section>
+                <h2><a id="boughtlink" data-no-swup href="{{boughtlink['link']}}">{{boughtlink["title"]}}</a></h2>
+                <p><b>Seller:&nbsp;</b> {{boughtlink["seller_id"]}}</p>
+                <p>{{boughtlink["description"]}}</p> 
+                <p><b>Price:&nbsp;</b> {{boughtlink["price"]}} Tulips</p>
+            </section>
+        {% endfor %}
+    </main>
+{% endblock %}

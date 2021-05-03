@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<nav class="swup" aria-label="Nav for shop, chat room, voting page">
+    <a href="{{url_for('shop')}}"><img src="{{url_for('static', filename='shop.png')}}" alt="Link to the hyper link market"></a>
+    <a href="{{url_for('chat')}}"><img src="{{url_for('static', filename='chat.png')}}" alt="Link to the public forum"></a>
+    <a class="active" href="{{url_for('voting')}}"><img id="voteicon" src="{{url_for('static', filename='vote.png')}}" alt="Link to the town hall"></a>
+</nav>
+<div class="swup transition-page1" id="proposalbuttons"><button id="colourbutton" onclick="showColours()">Colours</button>&nbsp;<button id="taxbutton" onclick="showTax()">Tax</button>&nbsp;<button id="limitbutton" onclick="showLimit()">Chat Limit</button></div>
+<main id="proposals" class="swup transition-page1">
+    <form id="colorform" action="#" method="POST" novalidate>
+        <!-- Start of borrowed JavaScript. Needed it to fix an error that was being thrown during HTML validation due to the action attribute being blank. -->
+        <script>document.querySelector("form").setAttribute("action", "")</script>
+        <!-- End of borrowed JavaScript -->
+        <a href="{{url_for('voting')}}">Go back to proposals</a>
+        <br>
+        {{color_form.hidden_tag()}}
+        <label for="maincolor">Primary Colour:</label>
+        <input id="maincolor" name="maincolor" value="#FFFFFF" type="color">
+        <label for="secondcolor">Secondary Colour:</label>
+        <input id="secondcolor" name="secondcolor" value="#30D5C8" type="color">
+        <label for="textcolor">Text Colour:</label>
+        <input id="textcolor" name="textcolor" value="#000000" type="color">
+        {{color_form.submit(id="submit1")}}
+    </form>
+    <form id="taxform" action="#" method="POST" novalidate>
+        <!-- Start of borrowed JavaScript. Needed it to fix an error that was being thrown during HTML validation due to the action attribute being blank. -->
+        <script>document.querySelector("form").setAttribute("action", "")</script>
+        <!-- End of borrowed JavaScript -->
+        <br>
+        <a href="{{url_for('voting')}}">Go back to proposals</a>
+        {{tax_form.hidden_tag()}}
+        {% for error in tax_form.salestax.errors %}
+                    <div>{{ error }}</div>
+        {% endfor %}
+        {{tax_form.salestax.label}}
+        {{tax_form.salestax()}}
+        {{tax_form.submit(id="submit2")}}
+    </form>
+    <form id="limitform" action="#" method="POST" novalidate>
+        <!-- Start of borrowed JavaScript. Needed it to fix an error that was being thrown during HTML validation due to the action attribute being blank. -->
+        <script>document.querySelector("form").setAttribute("action", "")</script>
+        <!-- End of borrowed JavaScript -->
+        <br>
+        <a href="{{url_for('voting')}}">Go back to proposals</a>
+        {{tax_form.hidden_tag()}}
+        {% for error in limit_form.limit.errors %}
+                    <div>{{ error }}</div>
+        {% endfor %}
+        {{limit_form.limit.label}}
+        {{limit_form.limit()}}
+        {{limit_form.submit(id="submit3")}}
+    </form>
+</main>
+{% endblock %}

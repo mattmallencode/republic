@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<nav class="swup">
+    <a href="{{url_for('shop')}}"><img src="{{url_for('static', filename='shop.png')}}" alt="Link to the hyper link market"></a>
+    <a href="{{url_for('chat')}}"><img src="{{url_for('static', filename='chat.png')}}" alt="Link to the public forum"></a>
+    <a class="active" href="{{url_for('voting')}}"><img id="voteicon" src="{{url_for('static', filename='vote.png')}}" alt="Link to the town hall"></a>
+</nav>
+<h1 class="swup transition-page1">The Town Hall</h1>
+        <main class="swup transition-page1" id="voting">
+            <section id="policies">
+                <h2>Current policies:</h2>
+                <p>{{treasury}} Tulips in the treasury</p>
+                <p>{{threshold}} votes needed for a proposal to pass.</p>
+                <p class="colorvote">Colours are currently: <span style="color:{{g.maincolor}}">Main Colour</span>, <span style="color:{{g.secondcolor}}">Secondary Colour</span>, <span style="{{g.textcolor}}">Text colour</span>.</p>
+                <p>Sales tax is currently: {{tax}}%</p>
+                <p>Chat limit is currently: {{chat_limit}}</p>
+            </section>
+            <a href="{{url_for('propose')}}">Propose a policy change</a>
+            <br>
+            {% for proposal in proposals %}
+            {% if proposal["proposal_type"] == "color" %}
+            {% set votemaincolor = proposal["proposal_value"][0:7] %}
+            {% set votesecondarycolor = proposal["proposal_value"][7:14]%}
+            {% set votetextcolor = proposal["proposal_value"][14:21] %}
+            <section>
+                <h3>Proposal to change website colours to:</h3>
+                <p class="colorvote"><span    style="color: {{votemaincolor}};">Main colour</span>&nbsp;<span style="color: {{votesecondarycolor}}">Secondary colour</span>&nbsp;<span style="color: {{votetextcolor}}">Text colour</span>&nbsp;<span style="background-color: transparent;">Votes: {{proposal['votes']}}</span>&nbsp;<br><a data-no-swup href="{{url_for('vote', proposal_id=proposal['proposal_id']|string+'y')}}">{% if proposal['proposal_id']|string+'y' in user_votes %}Voted Yes {% else %} Vote Yes {%endif%}</a>&nbsp;<a data-no-swup href="{{url_for('vote', proposal_id=proposal['proposal_id']|string+'n')}}">{% if proposal['proposal_id']|string+'n' in user_votes %}Voted No {% else %} Vote No {% endif %}</a></p>
+            </section>
+            {% endif %}
+            {% if proposal["proposal_type"] == "tax" %}
+            <section>
+                <h3>Proposal to change sales tax to: {{proposal['proposal_value']}}%</h3>
+                <p><span>Votes: {{proposal['votes']}}</span>&nbsp;<a data-no-swup href="{{url_for('vote', proposal_id=proposal['proposal_id']|string+'y')}}">{% if proposal['proposal_id']|string+'y' in user_votes %}Voted Yes {% else %} Vote Yes {%endif%}</a>&nbsp;<a data-no-swup href="{{url_for('vote', proposal_id=proposal['proposal_id']|string+'n')}}">{% if proposal['proposal_id']|string+'n' in user_votes %}Voted No {% else %} Vote No {% endif %}</a></p>
+            </section>
+            {% endif %}
+            {% if proposal["proposal_type"] == "limit" %}
+            <section>
+                <h3>Proposal to change chat limit to: {{proposal['proposal_value']}}</h3>
+                <p><span>Votes: {{proposal['votes']}}</span>&nbsp;<a data-no-swup href="{{url_for('vote', proposal_id=proposal['proposal_id']|string+'y')}}">{% if proposal['proposal_id']|string+'y' in user_votes %}Voted Yes {% else %} Vote Yes {%endif%}</a>&nbsp;<a data-no-swup href="{{url_for('vote', proposal_id=proposal['proposal_id']|string+'n')}}">{% if proposal['proposal_id']|string+'n' in user_votes %}Voted No {% else %} Vote No {% endif %}</a></p>
+            </section>
+            {% endif %}
+            <br>
+            {% endfor %}
+    </main>
+{% endblock %}

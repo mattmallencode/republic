@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+
+{% block main_content %}
+<nav class="swup" aria-label="Nav for shop, chat room, voting page">
+    <a class="active" href="{{url_for('shop')}}"><img src="{{url_for('static', filename='shop.png')}}" alt="Link to the hyper link market"></a>
+    <a href="{{url_for('chat')}}"><img src="{{url_for('static', filename='chat.png')}}" alt="Link to the public forum"></a>
+    <a href="{{url_for('voting')}}"><img id="voteicon" src="{{url_for('static', filename='vote.png')}}" alt="Link to the town hall"></a>
+</nav>
+    <div class="swup" id="shoptop">
+        <nav aria-label="Nav for shop, cart, sell form" id="shopnav">
+            <a href="{{url_for('boughtlinks')}}">Cart</a>
+            <a href="{{url_for('shop')}}">Shop</a>
+            <a class="active" href="{{url_for('sell')}}">Sell</a>
+        </nav>
+        <p id="balance">Your balance is {{ balance }} Tulips</p>
+    </div>  
+       <main id="postlink-main" class="swup transition-page1">
+            <form id="postlink" action="#" method="POST" novalidate>
+                <!-- Start of borrowed JavaScript. Needed it to fix an error that was being thrown during HTML validation due to the action attribute being blank. -->
+                <script>document.querySelector("form").setAttribute("action", "")</script>
+                <!-- End of borrowed JavaScript -->
+                <div>
+                    <p>Sales tax is {{tax}}%</p>
+                    {% for error in form.title.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {{ form.hidden_tag() }}
+                    {{ form.title.label }}
+                    {{ form.title(maxlength="30") }}
+                    <br>
+                    {% for error in form.description.errors %}
+                        {{ error }}
+                    {% endfor %}
+                    {{ form.description.label }}
+                    {{ form.description(maxlength="280", contenteditable="true") }}
+                    <br>
+                    {% for error in form.price.errors %}
+                        {{ error }}
+                    {% endfor %}
+                    {{ form.price.label }}
+                    {{ form.price() }}
+                    <br>
+                    {% for error in form.link.errors %}
+                        {{ error }}
+                        <br>
+                    {% endfor %}
+                    {{ form.link.label }}
+                    {{ form.link() }}
+                    {{ form.submit() }}
+                </div>
+            </form>
+       </main>
+{% endblock %}

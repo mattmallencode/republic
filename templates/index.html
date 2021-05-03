@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<nav class="swup">
+    <a href="{{url_for('shop')}}"><img src="{{url_for('static', filename='shop.png')}}" alt="Link to the hyper link market"></a>
+    <a class="active" href="{{url_for('chat')}}"><img src="{{url_for('static', filename='chat.png')}}" alt="Link to the public forum"></a>
+    <a href="{{url_for('voting')}}"><img id="voteicon" src="{{url_for('static', filename='vote.png')}}" alt="Link to the town hall"></a>
+</nav>
+        <h1 class="swup transition-page1">The Public Forum</h1>
+        <div class="swup transition-page1" id="chat-div">
+            <main id="chat">
+                <p id="chatdesc">Chat limit is currently: {{chat_limit}}</p>
+                {% for message in messages %}
+                    <div {% if message["user_id"] == user_id %} class="yourmessage" {% endif %}>
+                        <div>
+                            <p><b>{{message["user_id"]}}{% if message["user_id"] == user_id %} (You) {% endif %}</b><p>
+                            <p>{{message["message"]}}</p>
+                        </div>
+                        <br>
+                    </div>
+                {% endfor %}
+            </main>
+            <form action="#" method="post" novalidate>
+                <!-- Start of borrowed JavaScript. Needed it to fix an error that was being thrown during HTML validation due to the action attribute being blank. -->
+                <script>document.querySelector("form").setAttribute("action", "")</script>
+                <!-- End of borrowed JavaScript -->
+                {{ form.hidden_tag() }}
+                {{ form.message.label }}
+                {{ form.message(maxlength=280, id="message") }} {{ form.submit() }}
+            </form>
+            <br>
+        </div>
+        <br>
+        <br>
+{% endblock %}

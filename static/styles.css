@@ -1,0 +1,1233 @@
+/*
+        Attribution: 
+        1. Fire SVG made by made by Deepak K Vijayan (2xsamurai). Available from: https://codepen.io/2xsamurai/pen/EKpYM". Logo animation and form animation were made by me.
+        2. "round_up" function wirtten by Priyankur Sarkar. AVailable from: https://www.knowledgehut.com/blog/programming/python-rounding-numbers
+        3. Icons used in navbar are free even without attribution. Available from: https://uxwing.com/
+        4. Favicon is from the open source project Twemoji. 
+           Licensed under CC-BY 4.0. 
+           Twemoji: https://twemoji.twitter.com/ 
+           CC-BY 4.0 License: https://creativecommons.org/licenses/by/4.0/
+        5. Borrowed some CSS from Stack Overflow to center placeholder text in form fields. Available from: https://stackoverflow.com/questions/7381446/center-html-input-text-field-placeholder
+        6. Borrowed some CSS from Stack Overflow to brighten anchor tags on hover. Available from: https://stackoverflow.com/questions/16178382/css-lighten-an-element-on-hover
+        7. Borrowed some CSS to make form labels accessible to screen readers. Available from: https://webaim.org/techniques/css/invisiblecontent/
+        8. Borrowed some CSS to fix issues with safari mobile. Available from: https://stackoverflow.com/questions/50475114/when-rotating-an-iphone-x-to-landscape-white-space-appears-to-the-left-and-belox
+        9. Borrowed some CSS to fix scrolling issues on mobile. Available from: https://css-tricks.com/css-fix-for-100vh-in-mobile-webkit/
+        10. Borrowed some JavaScript from Stack Overflow to fix HTML validation issues due to blank action attribute. Available from: https://stackoverflow.com/questions/32491347/bad-value-for-attribute-action-on-element-form-must-be-non-empty/32491636
+        11. Borrowed some JavaScript from Stack Overflow to keep scroll at the buttom on the forum. Available from:  https://stackoverflow.com/questions/3842614/how-do-i-call-a-javascript-function-on-page-load
+        12. Borrowed some Javascript from Stack Overflow to force refresh on the chat page. Available from: https://stackoverflow.com/questions/32913226/auto-refresh-page-every-30-seconds
+        13. All page transition animations were made using the swup page transition library. Available from: https://swup.js.org/
+        14. Font used is Roboto Mono. Available from: https://fonts.google.com/specimen/Roboto+Mono?preview.text_type=custom
+*/
+
+/* START OF LOGIN, REGISTER, ABOUT */ 
+
+/* START OF DEFAULT: 320PX I.E. PHONES HELD IN PORTRAIT MODE */
+#postlink div {
+  overflow: auto;
+}
+
+#postlink p {
+  padding-top: 0rem;
+}
+
+#postlink div input[type="submit"] {
+  margin-bottom: 0rem;
+}
+
+#adminportal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#adminportal p {
+  background-color: transparent;
+}
+
+
+input {
+  -webkit-appearance: none;
+}
+
+h1, h2, p {
+  color: var(--textcolor);
+}
+
+#shopnav a, #shopnav a:visited {
+  color: grey;
+}
+
+#shoptop #shopnav .active {
+  color: var(--secondcolor);
+}
+
+a {
+  width: auto;
+  text-decoration: none;
+}
+
+#voteform label {
+  position: static;
+}
+
+/* start of CSS to make form labels accessible to screen readers */
+
+label {
+  text-align: center;
+}
+
+label:not(#colorform label) {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  }  
+/* end of CSS to make form labels accessible to screen readers */
+
+/* start of CSS to brighten anchor tags on hover */
+form a:hover {
+  filter: brightness(150%);
+}
+/* end of CSS to brighten anchor tags on hover */
+
+/* start of CSS used to fix issues with mobile safari */
+html {
+  padding: env(safe-area-inset);
+}
+/* end of CSS used to fix issues with mobile safari */
+
+html, body, main {
+  width: 100%;
+}
+
+@viewport {
+    width: device-width;
+}
+
+html {
+  max-width: 100%;
+  height: 100%;
+}
+
+body {
+  max-width: 100%;
+}
+
+#logoreg a, h1 + a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: 	var(--secondcolor);
+  display: block;
+  text-align: center;
+}
+
+.shop form {
+  margin-bottom: 0px;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+}
+
+h2 + div {
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 1em;
+  border-left: 0.5em solid var(--secondcolor);
+  margin-bottom: 1em;
+}
+
+form {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 10%;
+  display: block;
+}
+
+main {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+body {
+    background-color: var(--maincolor);
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+form + h1 {
+    text-transform: uppercase;
+    font-size: 2em;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10%;
+}
+
+textarea {
+  resize: none;
+  padding-top: 1rem;
+  padding-bottom: 0rem;
+}
+input, textarea {
+  background-color: #F0F0F0;
+  border-radius: 5%;
+  border: none;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 30px;
+}
+
+form a {
+  text-transform: uppercase;
+  color: 	#606060;
+  text-align: center;
+  display: block;
+  width: auto;
+  margin: 0 auto;
+}
+
+form a +  a {
+  text-transform: uppercase;
+  color: var(--secondcolor);
+  text-align: center;
+  width: auto;
+  margin: 0 auto;
+  margin-top: 1.5em;
+}
+
+input[type="submit"] {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#register {
+  width: 80px;
+}
+
+@keyframes logoanimation 
+{
+  0% {
+    opacity: 0;
+    margin-top: 50%;
+    margin-bottom: 70%;
+    transform: scale(0);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(1);
+    margin-top: 50%;
+    margin-bottom: 70%;
+  }
+  100% {
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+}
+/* Start of page transition animations made with Swup */
+.transition-page {
+	transition: 0.25s;
+	transform: translateX(0);
+    transform-origin: left;
+}
+
+html.is-animating .transition-page {
+	opacity: 0;
+	transform: translateX(100%);
+}
+
+html.is-leaving .transition-page {
+	opacity: 0;
+	transform: translateX(-100%);
+}
+.transition-page1 {
+	transition: 0.25s;
+	transform: translateX(0);
+    transform-origin: left;
+}
+
+html.is-animating .transition-page1 {
+	opacity: 0;
+	transform: translateX(100%);
+}
+
+html.is-leaving .transition-page1 {
+	opacity: 0;
+	transform: translateX(-100%);
+} 
+/* End of page transition animations made with Swup * /
+
+/* Start of fire SVG */
+  .mo-fire {
+    transform-origin: bottom;
+    animation: logoanimation 3s;
+    width: 6.25em;
+    margin: 0 auto;
+    padding-right: 1.75em;
+  }
+  
+  .mo-fire svg {
+    width: 100%;
+    height: auto;
+  }
+  .flame {
+    animation-name: flamefly;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0;
+    transform-origin: 50% 50% 0;
+  }
+  .flame.one {
+    animation-delay: 1s;
+    animation-duration: 3s;
+  }
+  .flame3.two{
+    animation-duration: 5s;
+    animation-delay: 1s;
+  }
+  
+  .flame-main {
+    animation-name: flameWobble;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .flame-main.one {
+    animation-duration: 4s;
+    animation-delay: 1s;
+  }
+  .flame-main.two {
+    animation-duration: 3s;
+    animation-delay: 2s;
+  }
+  .flame-main.three {
+    animation-duration: 2.1s;
+    animation-delay: 3s;
+  }
+  .flame-main.four {
+    animation-duration: 3.2s;
+    animation-delay: 4s;
+  }
+  .flame-main.five {
+    animation-duration: 2.5s;
+    animation-delay: 5s;
+  }
+  @keyframes flameWobble {
+    50% {
+      transform: scale(1,1.2) translate(0, -1.875emx) rotate(-2deg);
+    }
+  }
+  @keyframes flamefly {
+    0%{
+      transform: translate(0) rotate(180deg);
+    }
+     50% {
+       opacity: 1;
+    }
+    100% {
+      transform: translate(-1.25em, -6.25em) rotate(180deg);
+      opacity: 0;
+    }
+  }
+/* end of fire SVG */
+
+/* Start of CSS to center placeholder text */
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;  
+}
+
+:-ms-input-placeholder {  
+  text-align: center; 
+}
+/* End of CSS to center placeholder text */
+
+
+/* END  OF DEFAULT: 320PX I.E. PHONES HELD IN PORTRAIT MODE */
+
+/* START OF 480PX I.E. PHONES HELD IN LANDSCAPE MODE */ 
+@media screen and (min-width: 480px) and (orientation:landscape) {
+
+  #bluebg {
+    z-index: -1;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--secondcolor);
+    width: 50%;
+    grid-area: 1 / 1 / span 1 / span 1;
+  }
+
+  /* start of CSS used to fix scrolling issues on mobile */
+  #bluebg {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+
+  html {
+    min-height: -webkit-fill-available;
+  }
+  /* end of CSS used to fix scrolling issues on mobile */
+
+  #logreg {
+    min-height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #left {
+    grid-area: 1 / 1 / span 1 / span 1;
+}
+
+form {
+  margin-top: 0em;
+  height: 100%;
+  grid-area: 1 / 2 / span 1 / span 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#bluebg + div {
+  grid-area: 1 / 2 / span 1 / span 1;
+}
+
+form * {
+  margin-top: 0em;
+}
+  .mo-fire {
+    animation: logoanimation2 3s forwards;
+  }
+
+  @keyframes logoanimation2
+{
+  0% {
+    opacity: 0;
+    transform: scale(1.5)
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.5)
+  }
+}
+
+/* Start of page transition animations made with Swup */
+.transition-page {
+	transition: 0.25s;
+	transform: translateX(0);
+    transform-origin: bottom;
+}
+
+html.is-animating .transition-page {
+	opacity: 0;
+	transform: translateX(100%);
+}
+
+html.is-leaving .transition-page {
+	opacity: 0;
+	transform: translateX(100%);
+}
+/* End of page transition animations made with Swup */
+}
+
+/* END OF 480PX I.E. PHONES */
+
+/* START OF 600PX I.E. SMALLER TABLETS HELD IN PORTRAIT MODE */
+@media screen and (min-width: 600px)  and (orientation:portrait) {
+  @keyframes logoanimation {
+    0% {
+      opacity: 0;
+      margin-top: 40%;
+      margin-bottom: 100%;
+      transform: scale(0);
+    }
+    66% {
+      opacity: 1;
+      transform: scale(2.5);
+      margin-top: 40%;
+      margin-bottom: 100%;
+    }
+    100% {
+      margin-top: 40%;
+      margin-bottom: 0%;
+    }
+  }
+  .mo-fire {
+    transform: scale(2);
+    animation: logoanimation 3s forwards;
+  }
+  #bluebg h1 {
+    font-size: 3em;
+  }
+  input, textarea {
+    transform: scale(1.25);
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+
+  section div, a {
+    font-size: 1.5em;
+  }
+
+  input, textarea {
+    margin-bottom: 2em;
+  }
+}
+/* END OF 600PX I.E. SMALLER TABLETS HELD IN PORTRAIT MODE */ 
+
+@media screen and (min-width: 600px) and (orientation: portrait) {
+  @keyframes logoanimation {
+    0% {
+      opacity: 0;
+      margin-top: 25%;
+      margin-bottom: 100%;
+      transform: scale(0);
+    }
+    66% {
+      opacity: 1;
+      transform: scale(2.5);
+      margin-top: 25%;
+      margin-bottom: 100%;
+    }
+    100% {
+      margin-top: 25%;
+      margin-bottom: 0%;
+    }
+  }
+
+  .mo-fire {
+    transform: scale(2.5);
+  }
+}
+
+/* START OF 1024PX I.E. TEN-INCH TABLETS HELD IN LANDSCAPE MODE */
+@media screen and (min-width: 1024px) {
+  .transition-page1 {
+    transition: 0.25s;
+    transform: translateY(0);
+      transform-origin: top;
+  }
+  
+  html.is-animating .transition-page1 {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  
+  html.is-leaving .transition-page1 {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+@keyframes logoanimation {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(2.25);
+  }
+
+}
+
+input, textarea {
+  margin-bottom: 2rem;
+}
+.mo-fire {
+  transform: scale(2.25);
+  animation: logoanimation
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+
+}
+
+/* END OF 1024PX I.E. TEN-INCH TABLETS HELD IN LANDSCAPE MODE */
+
+/* START OF 1200PX I.E. LAPTOP & DESKTOP */ 
+
+@media screen and (min-width: 1200px) {
+
+form div {
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+input, textarea {
+  margin-bottom: 4em;
+  transform: scale(1.3);
+}
+
+@keyframes logoanimation {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  66% {
+    opacity: 1;
+    transform: scale(4);
+  }
+
+}
+
+form {
+  margin-top: 7.5%;
+}
+  .mo-fire {
+    transform: scale(4);
+    margin-top: 20em;
+    animation: logoanimation 3s;
+  }
+  #bluebg h1 {
+    font-size: 5em;
+  }
+
+  h1 {
+    font-size: 4em;
+  }
+  h2 {
+    font-size: 3em;
+  }
+  section div, a{
+    font-size: 2rem;
+  }
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* END OF 1200PX I.E. LAPTOP & DESKTOP */
+
+/* END OF LOGIN, REGISTER, ABOUT */
+
+/* START OF SHOP, CHAT, VOTE COMMON */
+
+#shop section a, #voting a {
+  background-color: whitesmoke;
+  font-size: 1.5rem;
+  color: var(--textcolor);
+  padding: 0rem 1rem;
+  border: 1px solid var(--textcolor);
+}
+
+#voting a {
+  font-size: 1rem;
+}
+
+#shop section a:hover, #voting a:hover {
+  filter: brightness(90%);
+}
+
+nav {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: whitesmoke;
+}
+
+nav a {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+nav img {
+  width: 1.5rem;
+  filter: invert(51%) sepia(1%) saturate(0%) hue-rotate(9deg) brightness(99%) contrast(87%);
+  border: 0px solid transparent;
+  margin: auto auto;
+  margin-top: 0.4rem;
+}
+
+nav img:hover {
+  filter: invert(30%) sepia(4%) saturate(0%) hue-rotate(222deg) brightness(92%) contrast(86%);
+}
+
+.active img {
+  filter: invert(30%) sepia(4%) saturate(0%) hue-rotate(222deg) brightness(92%) contrast(86%);
+}
+
+#voteicon {
+  margin-top: 0.1rem;
+}
+/* END OF SHOP, CHAT, VOTE, COMMON */
+
+/* START OF SHOP PAGE */
+#balance, #shopnav, nav, #shoptop {
+  z-index: 2;
+}
+
+#postlink p {
+  text-align: center;
+  margin: 0;
+}
+
+#postlink #title {
+  margin-top: 1rem;
+}
+
+#shoptop {
+  width: 100%;
+  display: grid;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#shopnav {
+  position: static;
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+
+#shopnav a:hover {
+  filter: brightness(150%);
+}
+
+#shopnav a {
+  padding-top: 0.1rem; 
+}
+  #shop section, #boughtlinks section {
+    background-color: lightgray;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 17%;
+    padding-left: 1rem;
+    border: 5px solid gray;
+    border-radius: 2rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
+  }
+
+  #shop section #boughtlink {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: var(--secondcolor);
+    font-size: 2rem;
+  }
+
+  #shop b #boughtlinks b{
+    display: inline;
+  }
+
+  #shop {
+    display: inline-block;
+    margin: 7rem 0rem;
+  }
+
+  #shop p, #boughtlinks p, #shop h2 {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 1rem;
+    padding: 0;
+    text-align: left;
+  }
+
+  #shop section a , #boughtlinks section a{
+    width: auto;
+    margin: 0 2rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  #postlink-main {
+    height: 100vh;
+  }
+
+  #postlink, #taxform, #colorform, #limitform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-top: 0px;
+  }
+
+  #balance {
+    background-color: transparent;
+    background-color: var(--secondcolor);
+    color: var(--maincolor);
+    font-size: 1.1rem;
+    top: 0;
+    margin: 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    grid-area: 1 / 1 / span 1 / span 1
+  }
+
+  /* START OF 480PX I.E. PHONES HELD IN LANDSCAPE MODE */
+@media screen and (min-width: 480px) and (orientation:landscape) {
+  #postlink {
+    margin-top: 2rem;
+  }
+
+  #shop h1 {
+    margin-top: 0rem;
+  }
+  #shop section {
+    width: 55%;
+    margin-top: 1rem;
+  }
+
+  #postlink input, #postlink textarea {
+    margin-top: 1rem;
+  }
+
+  #postlink input[type="submit"] {
+    margin-bottom: 2rem;
+  }
+}
+/* END OF 480PX I.E. PHONES HELD IN LANDSCAPE MODE */
+
+  /* START OF 1200PX I.E. LAPTOP & DESKTOP */
+  @media screen and (min-width: 1200px) {
+    #postlink input, #postlink textarea, #taxform input, #taxform textarea, #colorform input, #colorform textarea, #limitform input, #limitform textarea {
+      width: 30rem;
+      margin-top: 2rem;
+      border-radius: 0%;
+    }
+    #postlink input[type="submit"], #taxform input[type="submit"], #colorform input[type="submit"], #limitform input[type="submit"]   {
+      width: auto;
+    }
+    #postlink div {
+      background-color: var(--secondcolor);
+      width: 700px;
+      height: 550px;
+      border-radius: 1%;
+      border: 5px solid grey;
+      margin: 0 auto;
+    }
+    #shop section {
+      float: left;
+      margin: 1.66%;
+      margin-top: 0.5rem;
+      margin-left: 6rem;
+      width: 25%;
+    }
+  }
+  /* END OF 1200PX I.E. LAPTOP & DESKTOP */
+
+/* END OF SHOP PAGE */
+
+/* START OF CHAT PAGE */
+
+/* START OF DEFAULT: 320PX I.E. PHONES HELD IN PORTRAIT MODE */
+#chat {
+  background-color: var(--secondcolor);
+  width: 100%;
+  height: 55vh;
+  margin-bottom: 0px;
+  overflow-y: scroll;
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+
+#chat-div {
+  width: 90%;
+  height: 65vh;
+  display: grid;
+  grid-row-gap: 0.3rem;
+  padding: 0rem;
+  margin: 0 auto;
+  margin-bottom: 0rem;
+}
+
+#shop p {
+  word-wrap: break-word;
+  display: inline-block;
+  text-align: center;
+}
+#chat p {
+  margin: 0rem;
+  word-wrap: break-word;
+ 
+  text-align: left;
+}
+
+nav h1 {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  background-color: purple;
+}
+
+#chat + form {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  margin: 0px;
+  height: 10px;
+  padding: 0rem;
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+
+#chat-div input {
+  border: 0px solid transparent;
+  border-radius: 0%;
+  display: inline;
+  padding: 0rem;
+  margin: 0rem;
+}
+
+#message {
+  width: 80%;
+  margin: 0rem;
+  border: 1px solid var(--textcolor);
+  border-radius: 0%;
+  margin-top: -1.3%;
+  height: 20px;
+}
+
+#chat-div + div {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#chat-div input[type="submit"] {
+  width: 20%;
+  margin: 0rem;
+  height: 2.4rem;
+  margin-right: -0.15%;
+  margin-top: -1.4%;
+  border: 1px solid var(--textcolor);
+}
+
+#chat-div a {
+  width: 40%;
+  margin-top: -0.5%;
+  display: inline;
+}
+
+#send {
+  display: inline;
+}
+
+#chat p {
+  width: auto;
+}
+
+#chat > div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#chat .yourmessage div {
+  background-color: darkgray;
+}
+
+#chat > .yourmessage {
+  justify-content: flex-end;
+}
+
+#chat div div {
+  background-color: var(--maincolor);
+  overflow: hidden;
+  margin: 0.25rem 1rem;
+  padding: 0.5rem;
+  border: 1px solid teal;
+  border-radius: 1rem;
+}
+
+#chat-div {
+  display: grid;
+}
+
+#chat #chatdesc {
+  text-align: center;
+}
+
+/* END OF DEFAULT: 320PX I.E. PHONES HELD IN PORTRAIT MODE */
+
+/* START OF 480PX I.E. PHONES HELD IN LANDSCAPE MODE */
+@media screen and (min-width: 480px) and (orientation:landscape) {
+    #chat {
+      height: 30vh;
+    }
+    #message {
+      margin-top: -2.8%;
+    }
+    #chat-div input[type="submit"] {
+      margin-top: -2.8%;
+    }
+}
+/* END OF 480PX I.E. PHONES HELD IN LANDSCAPE MODE */
+
+
+/* START OF 600PX I.E. SMALLER TABLETS HELD IN PORTRAIT MODE */
+@media screen and (min-width: 600px) and (orientation: portrait) {
+  #message {
+    margin-left: -6.6%;
+    width: 60%;
+    margin-top: -3.75%;
+  }
+  #chat-div input[type="submit"] {
+    margin-top: -3.65%;
+    margin-left: 9%;
+  }
+}
+/* END OF 600PX I.E. SMALLER TABLETS HELD IN PORTRAIT MODE */
+
+/* START OF 768PX I.E. TEN-INCH TABLETS HELD IN PORTRAIT MODE */ 
+
+@media screen and (min-width: 768px) and (orientation: portrait) {
+  #message {
+    margin-left: 7.5%;
+    width: 58.25%;
+    margin-top: -3%;
+  }
+  #chat-div input[type="submit"] {
+    margin-top: -3.05%;
+    margin-left: 10%;
+  }
+}
+
+/* END OF 1024PX I.E. TEN-INCH TABLETS HELD IN LANDSCAPE MODE */
+
+@media screen and (min-width: 1024px) {
+  #chat {
+    height: 50.7vh;
+  }
+}
+
+/* END OF 1024PX I.E. TEN-INCH TABLETS HELD IN LANDSCAPE MODE */
+
+/* START OF 1200PX I.E. LAPTOP & DESKTOP */ 
+
+@media screen and (min-width: 1200px) {
+  #chat-div {
+    width: 50%;
+  }
+
+  #chat {
+    height: 65vh;
+  }
+  #message {
+    width: 76.05%;
+    border: 1px solid var(--textcolor);
+    border-radius: 0%;
+    margin-top: 0%;
+    margin-left: 10.05%;
+    height: 20px;
+  }
+  
+  #chat-div input[type="submit"] {
+    width: 10.4%;
+    margin-top: 0%;
+    height: 2.4rem;
+    border: 1px solid var(--textcolor);
+  }
+  
+}
+/* END OF 1200PX I.E. LAPTOP & DESKTOP */  
+
+/* END OF CHAT PAGE */
+
+/* START OF VOTE PAGE */
+
+#voting h3 {
+  font-weight: normal;
+}
+
+#proposals {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#colourbutton {
+  filter: brightness(75%);
+}
+
+#taxform {
+  display: none;
+}
+
+
+#limitform {
+  display: none;
+}
+
+#voting section + a {
+  background-color: transparent;
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  border: 0px solid transparent;
+  color: var(--secondcolor);
+  font-size: 2rem;
+  margin-top: 1rem;
+  display: block;
+}
+
+#proposals a {
+  margin-top: 3rem;
+}
+
+#proposals label {
+  font-size: 1.25rem;
+}
+
+h3 {
+  text-align: center;
+}
+
+#voting section {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 85%;
+}
+
+#voting #policies {
+  background-color: var(--secondcolor);
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid var(--textcolor);
+  padding: 1rem 1rem;
+}
+
+#voting p {
+  text-align: center
+}
+
+.colorvote span {
+  background-color: lightslategray;
+  line-height: 2rem;
+}
+
+#proposalbuttons {
+  position: fixed;
+  left: 21.5%;
+  z-index: 2;
+  top: 17%;
+}
+
+#proposals a {
+  font-size: 1.25rem;
+  width: max-content;
+}
+
+#proposalbuttons button {
+  font-size: 1.15rem;
+}
+
+/* START OF 480PX I.E. PHONES HELD IN LANDSCAPE MODE */
+@media screen and (min-width: 480px) and (orientation:landscape) {
+
+#colorform, #taxform, #limitform {
+  margin-bottom: 5rem;
+}
+
+#proposalbuttons {
+  position: fixed;
+  left: 35.5%;
+  z-index: 2;
+  top: 10%;
+}
+
+#proposals input[type="submit"] {
+  margin-top: 1rem;
+}
+
+}
+
+/* END OF 480PX I.E. PHONES HELD IN LANDSCAPE MODE */
+
+/* START OF 600PX I.E. SMALLER TABLETS HELD IN PORTRAIT MODE */
+@media screen and (min-width: 600px) and (orientation: portrait) {
+  #proposalbuttons{
+    left: 30%;
+  }
+}
+/* END OF 600PX I.E. SMALLER TABLETS HELD IN PORTRAIT MODE */
+
+/* START OF 1024PX I.E. TEN-INCH TABLETS HELD IN LANDSCAPE MODE */
+@media screen and (min-width: 1024px)  {
+  #proposalbuttons{
+    left: 35%;
+  }
+}
+/* END OF 600PX I.E. SMALLER TABLETS HELD IN PORTRAIT MODE */
+
+
+/* START OF 1200PX I.E. LAPTOP & DESKTOP */ 
+
+@media screen and (min-width: 1200px) {
+  
+  #proposalbuttons {
+    position: fixed;
+    left: 42%;
+    z-index: 2;
+    top: 10%;
+  }
+
+  #proposalbuttons button {
+    font-size: 1.5rem;
+  }
+
+  #proposals a {
+    font-size: 2rem;
+  }
+
+  #voting #policies {
+    width: max-content;
+  }
+
+  #voting section + a {
+    width: 25%;
+  }
+}
+/* END OF VOTE PAGE */

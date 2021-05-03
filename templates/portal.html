@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <main id="postlink-main">
+        <form id="postlink" class="swup" id="adminform" action="#" method="POST" novalidate>
+            <!-- Start of borrowed JavaScript. Needed it to fix an error that was being thrown during HTML validation due to the action attribute being blank. -->
+            <script>document.querySelector("form").setAttribute("action", "")</script>
+            <!-- End of borrowed JavaScript -->
+            <div id="adminportal">
+                {% if outcome %}
+                    <p>{{outcome}}</p>
+                {% endif %}
+                {{form.hidden_tag()}}
+                {% for error in form.command.errors %}
+                            <p>{{ error }}</p>
+                {% endfor %}
+                {{ form.command.label }}
+                {{ form.command() }}
+                {% for error in form.password.errors %}
+                            <p>{{ error }}</p>
+                {% endfor %}
+                {{ form.password.label }}
+                {{ form.password() }}
+                {{form.submit(id="submit1")}}
+            </form>
+        </div>
+    </main>
+{% endblock %}
