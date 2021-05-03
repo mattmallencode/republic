@@ -3,6 +3,12 @@ Flask web app featuring a global static chat room, user-driven marketplace and d
 
 # About this project:
 
+* Flask app that uses an SQLite database. 
+* There is a global chat room that refreshes statically. 
+* There is a marketplace that users can buy and sell on using fake currency.
+* Any user can suggest and vote on changes to the app e.g. colour scheme changes. 
+* Votes are upvotes/downvotes. Proposals with majority support are implemented automatically.
+
 # Attribution:
 
 1. Fire SVG made by made by Deepak K Vijayan (2xsamurai). Available from: https://codepen.io/2xsamurai/pen/EKpYM". Logo animation and form animation were made by me.
@@ -41,4 +47,3 @@ Flask web app featuring a global static chat room, user-driven marketplace and d
 8. user_id: "doughnutwalrus", password: "superdsecret".
 9. user_id: "snake", password: "superssecret".
 10. user_id: "birthdaycake", password: "superbsecret". 
-
